@@ -26,3 +26,22 @@ row_cache_size_in_mb (défaut à 0 désactivé) (cache in memory)
 file_cache_size_in_mb (défaut 4096 désactivé) (maximum memoru to use when pooling ss table buffers)
 memtable_heap_space_in_mb
 memtable_offheap_space_in_mb
+
+CLUSTER SIZING (Estimation process)
+- débit (throughput): mesurer le débit des données en "mouvement " par période de temps (GB/S)
+- taux de croissance (growth rate)
+- latence (latency) 
+
+CASSANDRA STRESS
+1. cassandra-stress est un tool pour simuler une charge de travail utilisateur
+Utiliser pour :
+  - déterminer la performance du schéma
+  - comprendre comment scaler la base
+  - optimiser le modèle de données et paramètres
+  - déterminer la capacité de sa production
+ A réaliser avant de passer en production
+
+2. configuration (fichier yaml)
+description schéma / description colonnes / description batch / description query
+4. 
+
