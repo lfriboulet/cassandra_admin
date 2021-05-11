@@ -43,5 +43,7 @@ Utiliser pour :
 
 2. configuration (fichier yaml)
 description schéma / description colonnes / description batch / description query
-4. 
+
+3. exemple de commande:
+cassandra-stress user profile=/home/ubuntu/labwork/TestProfile.yaml ops\(insert=100,user_by_email=100\) -node ds210-node1
 
