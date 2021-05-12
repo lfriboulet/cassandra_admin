@@ -47,3 +47,13 @@ description schéma / description colonnes / description batch / description que
 3. exemple de commande:
 cassandra-stress user profile=/home/ubuntu/labwork/TestProfile.yaml ops\(insert=100,user_by_email=100\) -node ds210-node1
 
+LINUX COMMAND
+- top
+- dstat = montre toutes les ressources systèmes en un unique tableau
+  dstat -am
+  option -a donne toutes les stats par défaut
+  option -am donne toutes les stats par défaut + la mémoire
+  
+- nodetool (couteau suisse de Cassandra)
+  info => pour avoir les infos sur un node spécifique
+  compactionhistory => liste et décrit les actions de compaction qui ont eu lieu
