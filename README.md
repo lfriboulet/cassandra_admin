@@ -55,5 +55,36 @@ LINUX COMMAND
   option -am donne toutes les stats par défaut + la mémoire
   
 - nodetool (couteau suisse de Cassandra)
-  info => pour avoir les infos sur un node spécifique
-  compactionhistory => liste et décrit les actions de compaction qui ont eu lieu
+  - info => pour avoir les infos sur un node spécifique
+  - compactionhistory => liste et décrit les actions de compaction qui ont eu lieu
+  - gcstats (java carbage collection)
+  - gossipinfo => pour vérifier si tous les nodes ont le même schéma
+  - ring => montre info concernant les tokens dans le ring
+  - tablestats => montre info concerant keyspaces / tables flushé sur disque -H pour une sortie human readeable
+  - tablehistograms => fournit des stats concernant une spécifique table (utile pour comprendre les latences sur les tables)
+  - tpstats (thread pool stats) => donne les infos concernant les thread pools
+      - active = le pool est en train de traiter une requête
+      - pending = la requête est e nattente dans le poom
+      - completed = la requête a été traitée
+      - blocked = la file était pleine et donc la requête a été rejectée
+
+SYSTEM & OUTPUT LOGS
+- /var/log/cassandra/system.log (INFO messages et plus)
+- /var/log/cassandra/debug.log (tous les messages)
+Il est possible de modifierl'empalcement des logs en ajoutant -Dcassandra.logir=<specify path here > dans le fichier /etc/dse/cassandra/jvm.options
+7 niveau de logging: OFF / ERROR / WARN / INFO / DEBUG / TRACE / ALL
+2 manière de configurer le logging:
+  - en utilisant le fichier logback.xml
+  - en utilisant la commande nodetool setlogginglevel (seulement temporaire jusqu'au prochain redémarrage) 
+  
+JVM GARBAGE COLLECTION LOGGING
+aide pour savoir exactement ce que fait la JVM
+Pour trouver:
+  - quand GC s'est produit
+  - combien de mémoire GC a besoin
+  - combien de mémoire est disponible dans la heap
+ Activer GC logging:
+ - statique en éditant jvm.options
+ - dynamique en utilisant jinfo
+
+-Xloggc:<log_file_name_goes_here>
