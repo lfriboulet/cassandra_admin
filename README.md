@@ -90,8 +90,13 @@ Pour trouver:
 -Xloggc:<log_file_name_goes_here>
 
 ADDING / REMOVING NODES
+  ADDING
 bootstrapping est le process pour ajouter un node dans le cluster:
 - le node en cours de rejoindre le cluster contact un SEED node
 - le seed node communique l'info dans le cluster, incluant les token range vers le nouveau node
 
 Lancer la commande nodetool cleanup après un bootstrap sur les autres nodes
+  
+  REMOVING
+  
+  REPLACING
