@@ -100,3 +100,13 @@ Lancer la commande nodetool cleanup après un bootstrap sur les autres nodes
   REMOVING
   
   REPLACING
+
+COMPACTION
+  
+  LEVELED COMPACTION
+  
+  SIZE TIERED COMAPCTION
+  
+  TIME WINDOW COMPACTION
+  
+  Adapter pour les time series data model
