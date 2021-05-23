@@ -110,3 +110,23 @@ COMPACTION
   TIME WINDOW COMPACTION
   
   Adapter pour les time series data model
+  
+  REPAIR
+  repair => synchronisation des répliques.
+  Repair s'assure que que toutes les répliques ont le même nombre de de partitions
+  Repair se produit:
+  - si nécessaire en lecture (via un quorum)
+  - aléatoire via la la proproiété de table read_repair_chance_or_dcloal_read_repair_chance
+  - manuellement via la commande nodetool repair
+
+  NODESYNC
+  Node sync se comporte comme un repair continue en arrrière plan (disponivle seulement sur DSE)
+  
+  SSTABLESPLIT
+  A utiliser pour splitter 1 large sstables en plusieurs sstables (par exemple suite à compaction qui a produit de trop larges sstables)
+  Pour réalsier cette tâche, i lfauut stopper le daemon cassandra
+  
+  MULTI DATACENTER CONCEPTS
+  
+  
+  
