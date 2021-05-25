@@ -128,5 +128,52 @@ COMPACTION
   
   MULTI DATACENTER CONCEPTS
   
+  CQL COPY
+  Pour importer et exporter des données délimités depuis et vers Apache Cassandra
+  
+  SSTABLEDUMP
+  permet de visualiser la donnée brute d'une SSTable en format TEXTE (foramt JSON)
+  
+  SSTABLE LOADER
+  fournit la possibilité" de :
+  - bulk load donnée externe dans un cluster
+  - charger des pre existing SSTABLE
+  
+  Prérequis:
+  Le cassandra.yaml doit etre dans le classpath
+  - au moins un node dans le cluster est déclaré en tant que SEED
+  - configuration obligatoire de ces paramètres:
+    - cluster_name
+    - listen_address
+    - storage_port
+    - rpc_address
+    - rpc_port
+  
+  SPARK FOR DATA LOADING
+  A tester
+  
+  DSE DSBULK
+  Disponible uniquement sur DSE
+  Déplace des données (cassandra) depuis / vers file system
+  - utilise 2 formats CSV ou JSON
+  Exemple: dsbulk load -url file1.csv -k ks1 -t table1
+  
+  BACKUP FUNDAMENTALS
+  en utilisant snapshot
+  
+  
+  BACKUP DETAILS
+  
+  
+  JVM Settings
+  Fichier jvm.options
+    - MAX_HEAP_SIZE (Maximum de 8GB)
+  - HEAP_NEWSIZE => configurer 100MB par coeur
+  
+  Heap Dump
+  - utilise pour investiguer sur des porblèmes de forte utilisation mémoire ou OutOfMemoryErrors
+  - montre exactement quels objects sont le plus consommés dans la heap
+  - eclipse fournit un tool pour anamlyser les Heap Dumps (Eclipse Memory Analyzer Tool)
+  
   
   
