@@ -175,5 +175,35 @@ COMPACTION
   - montre exactement quels objects sont le plus consommés dans la heap
   - eclipse fournit un tool pour anamlyser les Heap Dumps (Eclipse Memory Analyzer Tool)
   
+TUNING THE KERNEL
+  - activer ntp (important car apache cassandra utilsie les timestamp pour retourner la valeur la plus récente)
+  - User ressource limits (limits.conf) => tout désactiver (*-nofile, *-memelock ....)
+  - swap a désactiver / le retirer du fstab / modifier le paramètre swappiness
+  Remarque: il est préfèrable qu'un node crah au lieu de swapper
+  - network kernel settings (/etc/sysctl.conf) (voir recommendation)
+  
+ HARDWARE SELECTION
+  - Persistent storage type : éviter SAN storage / NAS et NFS
+    Il est FORTEMENT recommandé d'utiliser du SSD (pas de HDD)
+  - Memory
+    - production: 16 à 64GB (minimum 8GB)
+    - dev: pas moins de 4GB
+  - CPU
+    - production: 16 core CPU
+    - dev: 2 à 4 core CPU 
+  - Number of nodes
+  - network
+   - bind les interfaces OS sur différentes NIC
+   - bandwidth recommandée : 1GB/s
+  
+  CLOUD
+  ...
+  
+  SECURITY CONSIDERATIONS (contexte DSE de datastack, voir si possible en cassandra open source ? )
+  - authentication (dse.yaml) interne / ldap et kerberos
+  - authorization : Permissions sont alter / authorize / create / drop / modify / select
+  - encryption 
+  
+  
   
   
