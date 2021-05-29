@@ -55,6 +55,7 @@ LINUX COMMAND
   option -am donne toutes les stats par défaut + la mémoire
   
 - nodetool (couteau suisse de Cassandra)
+  - cleanup => déclenche immédiatement un cleanup des keyspaces qui n'appartiennet plus à un node.
   - info => pour avoir les infos sur un node spécifique
   - compactionhistory => liste et décrit les actions de compaction qui ont eu lieu
   - gcstats (java carbage collection)
