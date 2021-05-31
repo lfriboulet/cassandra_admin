@@ -219,3 +219,6 @@ Cassandra peut être amené à lire énormément d'anciennes données avant de l
   2 fonctions :
  -  il en apprend suffisamment à Cassandra sur la topologie du réseau pour acheminer efficacement les demandes.
  - il permet à Cassandra de répartir les réplicas autour du cluster pour éviter les échecs corrélés. Pour ce faire, il regroupe les machines en «datacenters» et «racks». Cassandra fera de son mieux pour ne pas avoir plus d'une réplique sur le même «rack» (qui peut ne pas être un emplacement physique).
+  
+  CLUSTERING KEY
+  colonne permettant d'identifier demanière unique les rows dans une partition et de déterminer l'ordre de tri (ASC par défaut)
