@@ -215,3 +215,7 @@ TUNING THE KERNEL
   - queue anti pattern: Étant donné que Cassandra utilise un moteur de stockage structuré par journal, les suppressions ne suppriment pas immédiatement toutes les traces d'une row. Au lieu de cela, Cassandra écrit un marqueur de suppression appelé tombstone qui supprime les anciennes données jusqu'à ce qu'elles puissent être compactées.
 Cassandra peut être amené à lire énormément d'anciennes données avant de lire les entrées encore "en vie"
   
+  SNITCH
+  2 fonctions :
+ -  il en apprend suffisamment à Cassandra sur la topologie du réseau pour acheminer efficacement les demandes.
+ - il permet à Cassandra de répartir les réplicas autour du cluster pour éviter les échecs corrélés. Pour ce faire, il regroupe les machines en «datacenters» et «racks». Cassandra fera de son mieux pour ne pas avoir plus d'une réplique sur le même «rack» (qui peut ne pas être un emplacement physique).
