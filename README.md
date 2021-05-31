@@ -3,7 +3,7 @@ Notes concernant la préparation de la certification Apache Cassandra Admin
 
 CONFIGURING CLUSTERS: YAML
 cassandra.yaml est le fichier de configuration principal. Emplacement par défaut /etc/dse/cassandra/. (package installation)
-Il est nécessaire de redémarre le node après chaque modification pour prise en compte de la nouvelle configuration.
+Il est nécessaire de redémarrer le node après chaque modification pour prise en compte de la nouvelle configuration.
 
 Minimal settings:
 - cluster_name
@@ -18,6 +18,11 @@ Commonly Used settings:
 - data_file_directories (défaut /var/lib/cassandra/data)
 - hints_directory (défaut /var/lib/cassandra/hints)
 - saved_caches_directory (défaut /var/lib/cassandra/saved_caches) (key and row cache files)
+
+Dynamic snitch
+Dynamic snitch surveille les latences en lecture pour éviter de lire à partir de hists qui sont "lents".
+Pour le configurer voir ce lien :
+https://cassandra.apache.org/doc/latest/operating/snitch.html#dynamic-snitching
 
 Notable settings:
 hinted_handoff_enable (défaut true)
@@ -206,5 +211,7 @@ TUNING THE KERNEL
   - encryption 
   
   
-  
+  ANTI PATTERN
+  - queue anti pattern: Étant donné que Cassandra utilise un moteur de stockage structuré par journal, les suppressions ne suppriment pas immédiatement toutes les traces d'une row. Au lieu de cela, Cassandra écrit un marqueur de suppression appelé tombstone qui supprime les anciennes données jusqu'à ce qu'elles puissent être compactées.
+Cassandra peut être amené à lire énormément d'anciennes données avant de lire les entrées encore "en vie"
   
