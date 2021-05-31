@@ -61,6 +61,7 @@ LINUX COMMAND
   
 - nodetool (couteau suisse de Cassandra)
   - cleanup => déclenche immédiatement un cleanup des keyspaces qui n'appartiennet plus à un node.
+  - flush => flush une ou plusieurs tables depuis la memtable. On peut spécifier un keyspace suivi de ou plusieurs tables que l'on veut flusher depuis memtable vers SSTables sur disk.
   - info => pour avoir les infos sur un node spécifique
   - compactionhistory => liste et décrit les actions de compaction qui ont eu lieu
   - gcstats (java carbage collection)
